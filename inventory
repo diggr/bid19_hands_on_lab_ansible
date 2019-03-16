@@ -1,0 +1,2 @@
+[laptops]
+#<IP> ansible_user=root ansible_hostname=<IP>

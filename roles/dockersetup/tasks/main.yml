@@ -1,0 +1,36 @@
+- name: Ensure no old docker versions installed
+  apt:
+    name: ['docker', 'docker-engine', 'docker.io', 'containerd', 'runc']
+    state: absent
+    purge: yes
+    
+- name: Install docker CE requirements
+  apt:
+    name: ['apt-transport-https', 'ca-certificates', 'software-properties-common', 'curl', 'gnupg-agent']
+    state: present
+
+- name: Add docker CE GPG key
+  apt_key:
+    url: 'https://download.docker.com/linux/ubuntu/gpg'
+    id: '9DC858229FC7DD38854AE2D88D81803C0EBFCD88'
+
+- name: Add docker CE repository
+  apt_repository:
+    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+
+- name: Install docker CE
+  apt:
+    name: ['docker-ce', 'docker-ce-cli', 'containerd.io']
+    update_cache: yes
+    state: present
+
+- name: Install docker SDK for Python
+  pip:
+    name: 'docker'
+    state: present
+
+- name: Start docker service
+  systemd: 
+    name: docker
+    state: started
+    enabled: yes

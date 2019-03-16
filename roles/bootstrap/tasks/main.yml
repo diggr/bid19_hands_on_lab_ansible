@@ -1,0 +1,8 @@
+- name: Ensure apt cache is updated
+  apt:
+    update_cache: yes
+
+- name: Install pip and setuptools
+  apt:
+    name: ['python-pip', 'python-setuptools']
+    state: present

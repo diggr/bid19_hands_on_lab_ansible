@@ -1,0 +1,11 @@
+- name: Create Jupyter Notebook Container
+  docker_container:
+    name: bid_jupyter
+    image: jupyter/scipy-notebook
+    volumes:
+      - /home/jovyan  
+    ports:
+      - "8080:8888"
+    state: started
+    restart: yes
+    command: "start-notebook.sh --NotebookApp.password={{ jupyter_password }}" 

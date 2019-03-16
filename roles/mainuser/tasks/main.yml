@@ -1,0 +1,6 @@
+- name: ensure mainuser is present
+  user:
+          name: "{{ mainuser }}"
+          shell: /bin/bash
+          password: "$6$qJbapG68nyRab3gx$nCyn0cvnDrYakaKgJRugZ5pfKyYS5GpebWIb/F1qXnll4sbHJw3jokp/UYiBtsZDsEfvkD8LpHi9EzA9PUvyt/"
+          state: present

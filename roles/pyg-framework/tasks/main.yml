@@ -1,0 +1,14 @@
+- name: Install prequesites
+  apt:
+    name: ['git', 'python3', 'python3-pip', 'python3-setuptools']
+    state: present
+
+- name: Install provit
+  pip:
+    executable: pip3
+    name: git+https://github.com/diggr/provit
+
+- name: Install pyg
+  pip:
+    executable: pip3
+    name: git+https://github.com/diggr/pyg@develop
