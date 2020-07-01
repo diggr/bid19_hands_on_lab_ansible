@@ -10,7 +10,7 @@
     # Create Password hash according to: https://jupyter-notebook.readthedocs.io/en/stable/public_server.html
     jupyter_password: "sha1:a1888029cc5f:cd90bc014d3bd6bf10869074d5d12314a916c8ba"
   roles:
-    - { role: mainuser,         tags: ['system',] }
+#    - { role: mainuser,         tags: ['system',] }
     - { role: dockersetup,      tags: ['docker',] }
     - { role: docker-jupyter,   tags: ['docker',] }
     - { role: docker-elk,       tags: ['docker',] }
